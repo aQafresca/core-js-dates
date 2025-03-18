@@ -229,8 +229,12 @@ function getNextFridayThe13th(date) {
  * Date(2024, 5, 1) => 2
  * Date(2024, 10, 10) => 4
  */
-function getQuarter(/* date */) {
-  throw new Error('Not implemented');
+function getQuarter(date) {
+  const d = new Date(date);
+  if (d.getMonth() > 2 && d.getMonth() <= 5) return 2;
+  if (d.getMonth() >= 6 && d.getMonth() <= 9) return 3;
+  if (d.getMonth() > 8 && d.getMonth() <= 11) return 4;
+  return 1;
 }
 
 /**
