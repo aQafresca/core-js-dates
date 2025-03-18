@@ -164,11 +164,10 @@ function formatDate(date) {
  * 1, 2024 => 8
  */
 function getCountWeekendsInMonth(month, year) {
-  let date = new Date(year, month);
-  const monthDay = date.getUTCDate();
+  const monthDay = new Date(year, month, 0).getDate();
   let count = 0;
   for (let day = 1; day <= monthDay; day += 1) {
-    date = new Date(year, month - 1, day);
+    const date = new Date(year, month - 1, day);
     if (date.getDay() === 0 || date.getDay() === 6) {
       count += 1;
     }
